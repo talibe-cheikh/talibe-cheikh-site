@@ -238,6 +238,19 @@
   .copy-btn.copied{ border-color:var(--rust-bright); color:var(--rust-bright); }
   .pay-method.disabled{ opacity:0.55; }
 
+
+  .payment-summary{border:1px solid var(--line);padding:22px;margin-bottom:18px;background:var(--ink)}
+  .summary-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);letter-spacing:.08em}
+  .summary-total{font-family:'Oswald',sans-serif;font-size:34px;color:var(--rust-bright);margin-top:5px}
+  .summary-note,.payment-security{font-size:12px;color:var(--mute);line-height:1.5;margin-top:7px}
+  .pay-method.selectable{cursor:pointer;transition:border-color .2s,transform .15s}
+  .pay-method.selectable:hover{border-color:var(--rust-bright);transform:translateY(-1px)}
+  .pay-method.selectable.active{border-color:var(--rust-bright);box-shadow:0 0 0 1px var(--rust-bright)}
+  .payment-status{min-height:22px;margin-top:14px;font-size:13px;line-height:1.5}
+  .payment-status.error{color:#ff8d6b}
+  .payment-status.success{color:#7ee2a8}
+  .payment-status.loading{color:var(--paper)}
+
   footer{ padding:34px 0; border-top:1px solid var(--line); }
   .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--mute); }
 
@@ -408,45 +421,33 @@
       </div>
 
       <div class="pay-panel">
-        <h3>Moyens de paiement</h3>
+        <h3>Paiement sécurisé</h3>
+        <div class="payment-summary">
+          <div class="summary-label">MONTANT À PAYER</div>
+          <div class="summary-total" id="payment-total">0 FCFA</div>
+          <div class="summary-note">Le montant est calculé à partir des prix configurés pour les pièces.</div>
+        </div>
 
-        <div class="pay-method">
+        <div class="pay-method selectable active" data-method="wave" id="method-wave">
           <div class="pm-top">
             <span class="pm-name">Wave</span>
-            <span class="pm-badge">Disponible</span>
+            <span class="pm-badge">Paiement en ligne</span>
           </div>
-          <div class="pm-num" id="wave-num">+221 77 383 25 57</div>
-          <div class="pm-note">Ouvrez l'app Wave, puis recherchez ce numéro pour envoyer le paiement. Confirmez ensuite par WhatsApp.</div>
-          <button type="button" class="copy-btn open-app-btn" data-app="wave">Ouvrir Wave pour payer</button>
+          <div class="pm-note">Cliquez sur « Payer maintenant ». Vous serez redirigé vers la page sécurisée Wave pour valider le paiement.</div>
         </div>
 
-        <div class="pay-method">
+        <div class="pay-method selectable" data-method="orange" id="method-orange">
           <div class="pm-top">
             <span class="pm-name">Orange Money</span>
-            <span class="pm-badge">Disponible</span>
+            <span class="pm-badge">Paiement en ligne</span>
           </div>
-          <div class="pm-num" id="om-num">+221 77 383 25 57</div>
-          <div class="pm-note">Ouvrez l'app Orange Money (ou faites #144#), puis envoyez le paiement à ce numéro. Confirmez ensuite par WhatsApp.</div>
-          <button type="button" class="copy-btn open-app-btn" data-app="om">Ouvrir Orange Money pour payer</button>
+          <div class="pm-note">Le paiement Orange Money sera lancé via l'intégration Web Payment configurée pour votre compte marchand.</div>
         </div>
 
-        <div class="pay-method">
-          <div class="pm-top">
-            <span class="pm-name">Virement bancaire / Carte</span>
-            <span class="pm-badge">Sur demande</span>
-          </div>
-          <div class="pm-note">Compte disponible au Sénégal et aux Émirats (Dubaï/Sharjah). Une fois la commande confirmée sur WhatsApp, nous vous communiquons le RIB pour un virement ou paiement par carte depuis votre banque.</div>
-          <a class="copy-btn" id="bank-wa-btn" href="https://wa.me/221773832557" target="_blank" rel="noopener">Demander les coordonnées bancaires</a>
-        </div>
-
-        <div class="pay-method disabled">
-          <div class="pm-top">
-            <span class="pm-name">PayPal</span>
-            <span class="pm-badge soon">Bientôt</span>
-          </div>
-          <div class="pm-note">Le paiement PayPal arrive prochainement.</div>
-        </div>
-      </div>
+        <button type="button" class="order-submit" id="pay-submit">Payer maintenant</button>
+        <div class="payment-status" id="payment-status" role="status"></div>
+        <div class="payment-security">Paiement traité par le prestataire choisi. Les clés secrètes ne sont jamais exposées dans le navigateur.</div>
+      </div>/div>
     </div>
   </div>
 </section>
@@ -555,59 +556,114 @@
     // let the click continue naturally to this updated href
   });
 
-  // ---- Copy-to-clipboard for payment numbers (kept for any future data-copy buttons) ----
-  document.querySelectorAll('.copy-btn[data-copy]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const val = btn.dataset.copy;
-      const done = ()=>{
-        const original = btn.textContent;
-        btn.textContent = "Copié !";
-        btn.classList.add('copied');
-        setTimeout(()=>{
-          btn.textContent = original;
-          btn.classList.remove('copied');
-        }, 1800);
-      };
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(val).then(done).catch(()=>{
-          window.prompt("Copiez le numéro :", val);
-        });
-      } else {
-        window.prompt("Copiez le numéro :", val);
-      }
-    });
-  });
 
-  // ---- Open Wave / Orange Money app directly ----
-  const appLinks = {
-    wave: {
-      android: "https://play.google.com/store/apps/details?id=com.wave.personal",
-      ios: "https://apps.apple.com/sn/app/wave-mobile-money/id1523884528"
-    },
-    om: {
-      android: "https://play.google.com/store/apps/details?id=com.orange.mobile.orangemoney",
-      ios: "https://apps.apple.com/sn/app/orange-money-senegal/id1447224280"
-    }
+  // ---- Payment calculator + secure checkout ----
+  // Configure product prices here or, preferably, replace this map with prices from your database.
+  const PRICE_CATALOG = {
+    // Example prices in XOF. Replace with your real catalog.
+    "alternateur": 75000,
+    "batterie": 65000,
+    "plaquettes": 25000,
+    "disque": 45000,
+    "filtre": 10000,
+    "pompe": 55000,
+    "amortisseur": 60000
   };
-  function isIOS(){ return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
 
-  document.querySelectorAll('.open-app-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const app = appLinks[btn.dataset.app];
-      const url = isIOS() ? app.ios : app.android;
-      window.open(url, '_blank');
-      const original = btn.textContent;
-      btn.textContent = "App ouverte — cherchez le numéro ↑";
-      setTimeout(()=>{ btn.textContent = original; }, 3000);
+  let selectedPaymentMethod = "wave";
+
+  function normalizeText(s){
+    return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+  }
+
+  function priceForPiece(name){
+    const n = normalizeText(name);
+    for(const key of Object.keys(PRICE_CATALOG)){
+      if(n.includes(key)) return PRICE_CATALOG[key];
+    }
+    return 0;
+  }
+
+  function calculateTotal(){
+    let total = 0;
+    piecesList.querySelectorAll('.piece-row').forEach(row=>{
+      const name = row.querySelector('.piece-name').value.trim();
+      const qty = Math.max(1, parseInt(row.querySelector('.piece-qty').value,10) || 1);
+      total += priceForPiece(name) * qty;
+    });
+    document.getElementById('payment-total').textContent =
+      new Intl.NumberFormat('fr-FR').format(total) + " FCFA";
+    return total;
+  }
+
+  piecesList.addEventListener('input', calculateTotal);
+
+  document.querySelectorAll('.pay-method.selectable').forEach(method=>{
+    method.addEventListener('click', ()=>{
+      document.querySelectorAll('.pay-method.selectable').forEach(m=>m.classList.remove('active'));
+      method.classList.add('active');
+      selectedPaymentMethod = method.dataset.method;
     });
   });
 
-  // ---- Ask for bank details via WhatsApp ----
-  const bankLink = document.getElementById('bank-wa-btn');
-  bankLink.addEventListener('click', ()=>{
-    const msg = "Bonjour, je viens de discuter d'une commande et je souhaite payer par virement bancaire / carte. Pouvez-vous m'envoyer vos coordonnées bancaires (Sénégal ou Émirats) ?";
-    bankLink.href = "https://wa.me/" + destPhone + "?text=" + encodeURIComponent(msg);
+  document.getElementById('pay-submit').addEventListener('click', async ()=>{
+    const status = document.getElementById('payment-status');
+    const nom = document.getElementById('o-nom').value.trim();
+    const ville = document.getElementById('o-ville').value.trim();
+    const note = document.getElementById('o-note').value.trim();
+    const total = calculateTotal();
+
+    const rows = piecesList.querySelectorAll('.piece-row');
+    const pieces = [];
+    rows.forEach(row=>{
+      const name = row.querySelector('.piece-name').value.trim();
+      const qty = Math.max(1, parseInt(row.querySelector('.piece-qty').value,10) || 1);
+      if(name) pieces.push({name, qty});
+    });
+
+    if(!nom || !pieces.length){
+      status.className = "payment-status error";
+      status.textContent = "Renseignez votre nom et au moins une pièce.";
+      return;
+    }
+    if(!total){
+      status.className = "payment-status error";
+      status.textContent = "Prix introuvable pour cette pièce. Demandez d'abord le devis sur WhatsApp.";
+      return;
+    }
+
+    status.className = "payment-status loading";
+    status.textContent = "Création de la session de paiement…";
+
+    try{
+      const response = await fetch("/api/create-checkout", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          provider:selectedPaymentMethod,
+          amount:total,
+          customer:{name:nom, city:ville},
+          items:pieces,
+          note
+        })
+      });
+
+      const data = await response.json();
+      if(!response.ok) throw new Error(data.error || "Impossible de créer le paiement.");
+
+      if(data.checkout_url){
+        window.location.href = data.checkout_url;
+      }else{
+        throw new Error("Le prestataire n'a pas retourné de lien de paiement.");
+      }
+    }catch(err){
+      status.className = "payment-status error";
+      status.textContent = err.message;
+    }
   });
+
+  calculateTotal();
+
 </script>
 
 </body>
