@@ -69,7 +69,6 @@
     background:var(--rust-bright); color:var(--ink); padding:9px 18px; font-size:12px;
     font-weight:600; letter-spacing:0.06em; text-transform:uppercase; border-radius:2px;
   }
-  .navlinks-mobile{display:none;}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -100,7 +99,7 @@
   .btn-outline{ border:1px solid rgba(238,241,236,0.35); color:var(--paper); }
   .btn-outline:hover{ border-color:var(--paper); }
 
-  /* ---------- MANIFEST / ROUTE (signature element) ---------- */
+  /* ---------- MANIFEST / ROUTE ---------- */
   .manifest{
     padding:80px 0; background:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
   }
@@ -164,6 +163,66 @@
   }
   .brand:hover{ background:var(--rust-bright); color:var(--ink); }
 
+  /* ---------- ORDER / COMMANDER ---------- */
+  .order{ padding:90px 0; background:var(--ink); border-top:1px solid var(--line); }
+  .order-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
+  .order-panel{ background:#141a21; padding:38px 34px; }
+  .order-panel h3{ font-size:20px; margin-bottom:6px; }
+  .order-panel .hint{ font-size:13px; color:var(--mute); margin-bottom:26px; }
+
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:7px; }
+  .field input, .field textarea, .field select{
+    width:100%; background:var(--ink); border:1px solid var(--line); color:var(--paper);
+    padding:11px 13px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; border-radius:2px;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{ outline:none; border-color:var(--rust-bright); }
+  .order-submit{
+    display:block; text-align:center; width:100%; margin-top:16px; padding:14px; background:var(--rust-bright); color:var(--ink);
+    border:none; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:0.06em; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:transform .15s;
+  }
+  .order-submit:hover{ transform:translateY(-2px); }
+
+  /* CATALOGUE DE PIÈCES */
+  .catalog-box{border:1px solid var(--line);padding:20px;margin-bottom:18px;background:var(--ink)}
+  .catalog-title{font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;margin-bottom:16px}
+  .catalog-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+  .catalog-select{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:12px 13px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;border-radius:2px;margin-bottom:14px}
+  .catalog-select:focus{outline:none;border-color:var(--rust-bright)}
+  .parts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+  .part-card{background:#141a21;border:1px solid var(--line);padding:16px;cursor:pointer;text-align:left;transition:.2s;width:100%;font:inherit;color:var(--paper);appearance:none}
+  .part-card:hover,.part-card.selected{border-color:var(--rust-bright);transform:translateY(-1px)}
+  .part-card:focus{outline:2px solid var(--rust-bright);outline-offset:2px}
+  .part-name{font-family:'Oswald',sans-serif;font-size:15px;text-transform:uppercase}
+  .part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright);font-size:13px;margin-top:7px}
+  .part-empty{font-size:13px;color:var(--mute);padding:15px;border:1px dashed var(--line);line-height:1.5;grid-column:1 / -1;}
+  .selected-part{display:none;margin-top:14px;padding:14px;border:1px solid var(--rust-bright);background:#141a21}
+  .selected-part.show{display:block}
+  .selected-part-row{display:flex;justify-content:space-between;gap:15px;align-items:center}
+  .selected-part-name{font-family:'Oswald',sans-serif;text-transform:uppercase}
+  .selected-part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright)}
+  .qty-control{display:flex;align-items:center;gap:10px;margin-top:12px}
+  .qty-control button{width:34px;height:34px;background:transparent;border:1px solid var(--line);color:var(--paper);cursor:pointer;font-size:18px}
+  .qty-control input{width:65px;text-align:center;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:8px}
+
+  .pay-panel{ background:#141a21; padding:38px 34px; }
+  .pay-panel h3{ font-size:20px; margin-bottom:22px; }
+  .payment-summary{border:1px solid var(--line);padding:22px;margin-bottom:18px;background:var(--ink)}
+  .summary-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);letter-spacing:.08em}
+  .summary-total{font-family:'Oswald',sans-serif;font-size:34px;color:var(--rust-bright);margin-top:5px}
+  .summary-note,.payment-security{font-size:12px;color:var(--mute);line-height:1.5;margin-top:7px}
+  .pay-method{ border:1px solid var(--line); border-radius:2px; padding:18px 18px; margin-bottom:14px; }
+  .pay-method .pm-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .pay-method .pm-name{ font-family:'Oswald',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:0.03em; }
+  .pay-method .pm-badge{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust-bright); border:1px solid var(--rust-bright); padding:2px 8px; border-radius:20px; }
+  .pay-method .pm-note{ font-size:12.5px; color:var(--mute); line-height:1.5; }
+  .pay-method.selectable{cursor:pointer;transition:border-color .2s,transform .15s}
+  .pay-method.selectable:hover{border-color:var(--rust-bright);transform:translateY(-1px)}
+  .pay-method.selectable.active{border-color:var(--rust-bright);box-shadow:0 0 0 1px var(--rust-bright)}
+  .payment-status{min-height:22px;margin-top:14px;font-size:13px;line-height:1.5}
+  .wa-request{display:block;text-align:center;margin-top:10px;padding:12px;border:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+
   /* ---------- CONTACT ---------- */
   .contact{ padding:90px 0 100px; background:#141a21; }
   .cards{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px;}
@@ -177,111 +236,10 @@
     font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; border-radius:2px;
   }
 
-  /* ---------- ORDER / COMMANDER ---------- */
-  .order{ padding:90px 0; background:var(--ink); border-top:1px solid var(--line); }
-  .order-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
-  .order-panel{ background:#141a21; padding:38px 34px; }
-  .order-panel h3{ font-size:20px; margin-bottom:6px; }
-  .order-panel .hint{ font-size:13px; color:var(--mute); margin-bottom:26px; }
-
-  .dest-toggle{ display:flex; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
-  .dest-toggle button{
-    flex:1; padding:11px 10px; background:var(--ink); color:var(--mute); font-family:'IBM Plex Mono',monospace;
-    font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; border:none; cursor:pointer; transition:.2s;
-  }
-  .dest-toggle button.active{ background:var(--rust-bright); color:var(--ink); font-weight:600; }
-
-  .field{ margin-bottom:16px; }
-  .field label{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:7px; }
-  .field input, .field textarea{
-    width:100%; background:var(--ink); border:1px solid var(--line); color:var(--paper);
-    padding:11px 13px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; border-radius:2px;
-  }
-  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--rust-bright); }
-  .field textarea{ resize:vertical; min-height:80px; }
-  .order-submit{
-    display:block; text-align:center; width:100%; margin-top:6px; padding:14px; background:var(--rust-bright); color:var(--ink);
-    border:none; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:13px;
-    letter-spacing:0.06em; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:transform .15s;
-  }
-  .order-submit:hover{ transform:translateY(-2px); }
-
-  .piece-row{ display:grid; grid-template-columns:1fr 90px 34px; gap:10px; margin-bottom:12px; align-items:end; }
-  .piece-row .field{ margin-bottom:0; }
-  .piece-row .remove-piece{
-    height:42px; background:transparent; border:1px solid var(--line); color:var(--mute);
-    cursor:pointer; border-radius:2px; font-size:16px; transition:.2s;
-  }
-  .piece-row .remove-piece:hover{ border-color:var(--rust-bright); color:var(--rust-bright); }
-  .add-piece-btn{
-    background:transparent; border:1px dashed rgba(238,241,236,0.3); color:var(--paper);
-    padding:10px 16px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase;
-    letter-spacing:0.05em; cursor:pointer; border-radius:2px; width:100%; margin-bottom:6px; transition:.2s;
-  }
-  .add-piece-btn:hover{ border-color:var(--rust-bright); color:var(--rust-bright); }
-
-  .pay-panel{ background:#141a21; padding:38px 34px; }
-  .pay-panel h3{ font-size:20px; margin-bottom:22px; }
-  .pay-method{ border:1px solid var(--line); border-radius:2px; padding:18px 18px; margin-bottom:14px; }
-  .pay-method .pm-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-  .pay-method .pm-name{ font-family:'Oswald',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:0.03em; }
-  .pay-method .pm-badge{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust-bright); border:1px solid var(--rust-bright); padding:2px 8px; border-radius:20px; }
-  .pay-method .pm-badge.soon{ color:var(--mute); border-color:var(--mute); }
-  .pay-method .pm-num{ font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--paper); margin:10px 0; }
-  .pay-method .pm-note{ font-size:12.5px; color:var(--mute); line-height:1.5; }
-  .copy-btn{
-    margin-top:10px; display:inline-block; padding:8px 14px; border:1px solid rgba(238,241,236,0.3);
-    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
-    background:transparent; color:var(--paper); cursor:pointer; border-radius:2px; transition:.2s;
-  }
-  .copy-btn:hover{ border-color:var(--paper); }
-  .copy-btn.copied{ border-color:var(--rust-bright); color:var(--rust-bright); }
-  .pay-method.disabled{ opacity:0.55; }
-
-
-
-  .parts-grid .part-card{width:100%;font:inherit;color:var(--paper);appearance:none}
-  .parts-grid .part-card:focus{outline:2px solid var(--rust-bright);outline-offset:2px}
-  .field .catalog-select{margin-bottom:0}
-
-  /* ---------- CATALOGUE DE PIÈCES ---------- */
-  .catalog-box{border:1px solid var(--line);padding:20px;margin-bottom:18px;background:var(--ink)}
-  .catalog-title{font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;margin-bottom:16px}
-  .catalog-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
-  .catalog-select{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:12px 13px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;border-radius:2px;margin-bottom:14px}
-  .catalog-select:focus{outline:none;border-color:var(--rust-bright)}
-  .parts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-  .part-card{background:#141a21;border:1px solid var(--line);padding:16px;cursor:pointer;text-align:left;transition:.2s}
-  .part-card:hover,.part-card.selected{border-color:var(--rust-bright);transform:translateY(-1px)}
-  .part-name{font-family:'Oswald',sans-serif;font-size:15px;text-transform:uppercase}
-  .part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright);font-size:13px;margin-top:7px}
-  .part-empty{font-size:13px;color:var(--mute);padding:15px;border:1px dashed var(--line);line-height:1.5}
-  .selected-part{display:none;margin-top:14px;padding:14px;border:1px solid var(--rust-bright);background:#141a21}
-  .selected-part.show{display:block}
-  .selected-part-row{display:flex;justify-content:space-between;gap:15px;align-items:center}
-  .selected-part-name{font-family:'Oswald',sans-serif;text-transform:uppercase}
-  .selected-part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright)}
-  .qty-control{display:flex;align-items:center;gap:10px;margin-top:12px}
-  .qty-control button{width:34px;height:34px;background:transparent;border:1px solid var(--line);color:var(--paper);cursor:pointer;font-size:18px}
-  .qty-control input{width:65px;text-align:center;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:8px}
-  .payment-summary{border:1px solid var(--line);padding:22px;margin-bottom:18px;background:var(--ink)}
-  .summary-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);letter-spacing:.08em}
-  .summary-total{font-family:'Oswald',sans-serif;font-size:34px;color:var(--rust-bright);margin-top:5px}
-  .summary-note,.payment-security{font-size:12px;color:var(--mute);line-height:1.5;margin-top:7px}
-  .pay-method.selectable{cursor:pointer;transition:border-color .2s,transform .15s}
-  .pay-method.selectable:hover{border-color:var(--rust-bright);transform:translateY(-1px)}
-  .pay-method.selectable.active{border-color:var(--rust-bright);box-shadow:0 0 0 1px var(--rust-bright)}
-  .payment-status{min-height:22px;margin-top:14px;font-size:13px;line-height:1.5}
-  .payment-status.error{color:#ff8d6b}
-  .payment-status.success{color:#7ee2a8}
-  .payment-status.loading{color:var(--paper)}
-  .wa-request{display:block;text-align:center;margin-top:10px;padding:12px;border:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-  @media(max-width:600px){.parts-grid{grid-template-columns:1fr}}
-
   footer{ padding:34px 0; border-top:1px solid var(--line); }
   .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--mute); }
 
-  @media (max-width:860px){
+  @media(max-width:860px){
     .navlinks{ display:none; }
     .steps{ grid-template-columns:1fr 1fr; }
     .step{ border-right:1px solid var(--line); }
@@ -292,6 +250,10 @@
     .route{ flex-direction:column; gap:40px; }
     .route-line, .route-marker{ display:none; }
     .hero{ padding-top:130px; }
+    .order-grid{ grid-template-columns:1fr; }
+  }
+  @media(max-width:600px){
+    .parts-grid{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -551,7 +513,7 @@
 
         <div class="payment-status" id="payment-status" role="status"></div>
         <div class="payment-security">
-          Le paiement est traité par le prestataire choisi. Les clés API restent sur le serveur.
+          Le paiement est traité par le prestataire choisi.
         </div>
       </div>
 
@@ -593,9 +555,7 @@
 
 <script>
   // =========================================================
-  // CATALOGUE
-  // Remplacez/complétez les prix avec votre catalogue réel.
-  // Les prix sont en FCFA.
+  // CATALOGUE DE PIÈCES
   // =========================================================
   const CATALOG = {
     "Hyundai": {
@@ -629,7 +589,7 @@
       "Focus": [
         {id:"focus-alternateur", name:"Alternateur", price:75000},
         {id:"focus-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"focus-amortisseur", name:"Amortisseur", price60000}
+        {id:"focus-amortisseur", name:"Amortisseur", price:60000}
       ]
     },
 
@@ -637,240 +597,201 @@
       "208": [
         {id:"208-alternateur", name:"Alternateur", price:70000},
         {id:"208-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"208-amortisseur", name:"Amortisseur", price55000},
+        {id:"208-amortisseur", name:"Amortisseur", price:55000},
         {id:"208-filtre", name:"Filtre à huile", price:10000}
       ],
       "3008": [
         {id:"3008-alternateur", name:"Alternateur", price:80000},
-        {id:"3008-plaquettes", name:"Plaquettes de frein", price30000},
-        {id:"3008-amortisseur", name:"Amortisseur", price65000}
+        {id:"3008-plaquettes", name:"Plaquettes de frein", price:30000},
+        {id:"3008-amortisseur", name:"Amortisseur", price:65000}
       ]
     },
 
     "Mazda": {
       "CX-5": [
-        {id:"cx5-alternateur", name:"Alternateur", price85000},
-        {id:"cx5-plaquettes", name:"Plaquettes de frein", price30000},
-        {id:"cx5-amortisseur", name:"Amortisseur", price65000}
+        {id:"cx5-alternateur", name:"Alternateur", price:85000},
+        {id:"cx5-plaquettes", name:"Plaquettes de frein", price:30000},
+        {id:"cx5-amortisseur", name:"Amortisseur", price:65000}
       ],
       "Mazda 3": [
-        {id:"mazda3-alternateur", name:"Alternateur", price75000},
-        {id:"mazda3-plaquettes", name:"Plaquettes de frein", price25000},
-        {id:"mazda3-amortisseur", name:"Amortisseur", price60000}
+        {id:"mazda3-alternateur", name:"Alternateur", price:75000},
+        {id:"mazda3-plaquettes", name:"Plaquettes de frein", price:25000},
+        {id:"mazda3-amortisseur", name:"Amortisseur", price:60000}
       ]
     },
 
     "Jeep": {
       "Grand Cherokee": [
-        {id:"gc-alternateur", name:"Alternateur", price95000},
-        {id:"gc-plaquettes", name:"Plaquettes de frein", price35000},
-        {id:"gc-amortisseur", name:"Amortisseur", price75000}
+        {id:"gc-alternateur", name:"Alternateur", price:95000},
+        {id:"gc-plaquettes", name:"Plaquettes de frein", price:35000},
+        {id:"gc-amortisseur", name:"Amortisseur", price:75000}
       ],
       "Compass": [
-        {id:"compass-alternateur", name:"Alternateur", price90000},
-        {id:"compass-plaquettes", name:"Plaquettes de frein", price35000},
+        {id:"compass-alternateur", name:"Alternateur", price:90000},
+        {id:"compass-plaquettes", name:"Plaquettes de frein", price:35000},
         {id:"compass-amortisseur", name:"Amortisseur", price:70000}
       ]
     }
   };
 
+  // ÉLÉMENTS DOM
   const brandSelect = document.getElementById("car-brand");
   const modelSelect = document.getElementById("car-model");
   const partsGrid = document.getElementById("parts-grid");
   const selectedPartBox = document.getElementById("selected-part");
   const selectedPartName = document.getElementById("selected-part-name");
   const selectedPartUnitPrice = document.getElementById("selected-part-unit-price");
-  const qtyInput = document.getElementById("part-qty");
-  const totalEl = document.getElementById("payment-total");
-  const statusEl = document.getElementById("payment-status");
+  const partQtyInput = document.getElementById("part-qty");
+  const qtyMinusBtn = document.getElementById("qty-minus");
+  const qtyPlusBtn = document.getElementById("qty-plus");
+  const paymentTotal = document.getElementById("payment-total");
+  const paySubmitBtn = document.getElementById("pay-submit");
+  const paymentStatus = document.getElementById("payment-status");
 
-  let selectedPart = null;
-  let selectedPaymentMethod = "wave";
+  let currentPart = null;
+  let currentPaymentMethod = "wave";
 
-  function money(value){
-    return new Intl.NumberFormat("fr-FR").format(value) + " FCFA";
+  // INITIALISATION MARQUES
+  function initBrands() {
+    for (let brand in CATALOG) {
+      const opt = document.createElement("option");
+      opt.value = brand;
+      opt.textContent = brand;
+      brandSelect.appendChild(opt);
+    }
   }
 
-  // Remplir les marques.
-  Object.keys(CATALOG).forEach(brand => {
-    const option = document.createElement("option");
-    option.value = brand;
-    option.textContent = brand;
-    brandSelect.appendChild(option);
-  });
-
-  brandSelect.addEventListener("change", () => {
-    selectedPart = null;
-    selectedPartBox.classList.remove("show");
-    partsGrid.innerHTML = '<div class="part-empty">Sélectionnez un modèle pour afficher les pièces.</div>';
+  // GESTION CHANGEMENT MARQUE
+  brandSelect.addEventListener("change", function() {
+    const selectedBrand = this.value;
     modelSelect.innerHTML = '<option value="">Sélectionner un modèle</option>';
-    modelSelect.disabled = !brandSelect.value;
+    partsGrid.innerHTML = '<div class="part-empty">Sélectionnez un modèle pour voir les pièces disponibles.</div>';
+    resetSelection();
 
-    if(!brandSelect.value){
+    if (selectedBrand && CATALOG[selectedBrand]) {
+      modelSelect.disabled = false;
+      for (let model in CATALOG[selectedBrand]) {
+        const opt = document.createElement("option");
+        opt.value = model;
+        opt.textContent = model;
+        modelSelect.appendChild(opt);
+      }
+    } else {
+      modelSelect.disabled = true;
       modelSelect.innerHTML = '<option value="">Sélectionner d\'abord une marque</option>';
-      updateTotal();
-      return;
     }
-
-    Object.keys(CATALOG[brandSelect.value]).forEach(model => {
-      const option = document.createElement("option");
-      option.value = model;
-      option.textContent = model;
-      modelSelect.appendChild(option);
-    });
-
-    updateTotal();
   });
 
-  modelSelect.addEventListener("change", () => {
-    selectedPart = null;
+  // GESTION CHANGEMENT MODÈLE
+  modelSelect.addEventListener("change", function() {
+    const selectedBrand = brandSelect.value;
+    const selectedModel = this.value;
+    partsGrid.innerHTML = '';
+    resetSelection();
+
+    if (selectedBrand && selectedModel && CATALOG[selectedBrand][selectedModel]) {
+      const parts = CATALOG[selectedBrand][selectedModel];
+      parts.forEach(part => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "part-card";
+        btn.innerHTML = `<div class="part-name">${part.name}</div><div class="part-price">${part.price.toLocaleString('fr-FR')} FCFA</div>`;
+        btn.addEventListener("click", () => selectPart(part, btn));
+        partsGrid.appendChild(btn);
+      });
+    } else {
+      partsGrid.innerHTML = '<div class="part-empty">Sélectionnez une marque et un modèle pour afficher les pièces disponibles.</div>';
+    }
+  });
+
+  // SÉLECTION D'UNE PIÈCE
+  function selectPart(part, cardElem) {
+    document.querySelectorAll(".part-card").forEach(c => c.classList.remove("selected"));
+    cardElem.classList.add("selected");
+    currentPart = part;
+
+    selectedPartName.textContent = part.name;
+    selectedPartUnitPrice.textContent = `${part.price.toLocaleString('fr-FR')} FCFA / unité`;
+    selectedPartBox.classList.add("show");
+    
+    updateTotal();
+  }
+
+  // REINITIALISER SÉLECTION
+  function resetSelection() {
+    currentPart = null;
     selectedPartBox.classList.remove("show");
+    partQtyInput.value = 1;
+    updateTotal();
+  }
 
-    if(!modelSelect.value){
-      partsGrid.innerHTML = '<div class="part-empty">Sélectionnez un modèle pour afficher les pièces.</div>';
+  // RECALCUL TOTAL
+  function updateTotal() {
+    if (currentPart) {
+      const qty = parseInt(partQtyInput.value, 10) || 1;
+      const total = currentPart.price * qty;
+      paymentTotal.textContent = `${total.toLocaleString('fr-FR')} FCFA`;
+    } else {
+      paymentTotal.textContent = "0 FCFA";
+    }
+  }
+
+  // BOUTONS QUANTITÉ
+  qtyMinusBtn.addEventListener("click", () => {
+    let val = parseInt(partQtyInput.value, 10) || 1;
+    if (val > 1) {
+      partQtyInput.value = val - 1;
       updateTotal();
-      return;
     }
+  });
 
-    const parts = CATALOG[brandSelect.value][modelSelect.value];
-    partsGrid.innerHTML = "";
-
-    parts.forEach(part => {
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "part-card";
-      card.innerHTML = `
-        <div class="part-name">${part.name}</div>
-        <div class="part-price">${money(part.price)}</div>
-      `;
-
-      card.addEventListener("click", () => {
-        document.querySelectorAll(".part-card").forEach(c => c.classList.remove("selected"));
-        card.classList.add("selected");
-        selectedPart = part;
-        qtyInput.value = 1;
-        selectedPartName.textContent = part.name;
-        selectedPartUnitPrice.textContent = money(part.price) + " / unité";
-        selectedPartBox.classList.add("show");
-        updateTotal();
-      });
-
-      partsGrid.appendChild(card);
-    });
-
+  qtyPlusBtn.addEventListener("click", () => {
+    let val = parseInt(partQtyInput.value, 10) || 1;
+    partQtyInput.value = val + 1;
     updateTotal();
   });
 
-  function updateTotal(){
-    if(!selectedPart){
-      totalEl.textContent = "0 FCFA";
-      return 0;
-    }
-
-    const qty = Math.max(1, parseInt(qtyInput.value,10) || 1);
-    qtyInput.value = qty;
-    const total = selectedPart.price * qty;
-    totalEl.textContent = money(total);
-    return total;
-  }
-
-  document.getElementById("qty-minus").addEventListener("click", () => {
-    qtyInput.value = Math.max(1, (parseInt(qtyInput.value,10) || 1) - 1);
-    updateTotal();
-  });
-
-  document.getElementById("qty-plus").addEventListener("click", () => {
-    qtyInput.value = (parseInt(qtyInput.value,10) || 1) + 1;
-    updateTotal();
-  });
-
-  qtyInput.addEventListener("input", updateTotal);
-
+  // MODE DE PAIEMENT
   document.querySelectorAll(".pay-method.selectable").forEach(method => {
-    method.addEventListener("click", () => {
-      document.querySelectorAll(".pay-method.selectable")
-        .forEach(m => m.classList.remove("active"));
-      method.classList.add("active");
-      selectedPaymentMethod = method.dataset.method;
+    method.addEventListener("click", function() {
+      document.querySelectorAll(".pay-method.selectable").forEach(m => m.classList.remove("active"));
+      this.classList.add("active");
+      currentPaymentMethod = this.getAttribute("data-method");
     });
   });
 
-  // Paiement : le frontend appelle le backend /api/create-checkout.
-  // Les clés Wave/Orange Money ne sont JAMAIS placées ici.
-  document.getElementById("pay-submit").addEventListener("click", async () => {
+  // SOUMISSION PAIEMENT
+  paySubmitBtn.addEventListener("click", () => {
     const nom = document.getElementById("o-nom").value.trim();
-    const ville = document.getElementById("o-ville").value.trim();
-    const note = document.getElementById("o-note").value.trim();
-    const total = updateTotal();
+    const ville = document.getElementById("o-ville").value;
 
-    if(!selectedPart){
-      statusEl.className = "payment-status error";
-      statusEl.textContent = "Veuillez d'abord choisir une pièce.";
+    if (!currentPart) {
+      paymentStatus.className = "payment-status error";
+      paymentStatus.textContent = "Veuillez sélectionner une pièce avant de payer.";
       return;
     }
 
-    if(!nom){
-      statusEl.className = "payment-status error";
-      statusEl.textContent = "Veuillez renseigner votre nom.";
-      document.getElementById("o-nom").focus();
+    if (!nom || !ville) {
+      paymentStatus.className = "payment-status error";
+      paymentStatus.textContent = "Veuillez indiquer votre nom et votre ville.";
       return;
     }
 
-    statusEl.className = "payment-status loading";
-    statusEl.textContent = "Création de votre paiement…";
+    const qty = parseInt(partQtyInput.value, 10) || 1;
+    const total = currentPart.price * qty;
 
-    const order = {
-      provider: selectedPaymentMethod,
-      amount: total,
-      customer: {
-        name: nom,
-        city: ville
-      },
-      items: [{
-        brand: brandSelect.value,
-        model: modelSelect.value,
-        part_id: selectedPart.id,
-        name: selectedPart.name,
-        quantity: Math.max(1, parseInt(qtyInput.value,10) || 1),
-        unit_price: selectedPart.price
-      }],
-      note
-    };
+    paymentStatus.className = "payment-status loading";
+    paymentStatus.textContent = `Redirection vers ${currentPaymentMethod.toUpperCase()} pour le règlement de ${total.toLocaleString('fr-FR')} FCFA...`;
 
-    try{
-      const response = await fetch("/api/create-checkout", {
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(order)
-      });
-
-      const data = await response.json();
-
-      if(!response.ok){
-        throw new Error(data.error || "Impossible de créer le paiement.");
-      }
-
-      if(!data.checkout_url){
-        throw new Error("Le prestataire n'a pas retourné de lien de paiement.");
-      }
-
-      window.location.href = data.checkout_url;
-    }catch(error){
-      statusEl.className = "payment-status error";
-      statusEl.textContent = error.message;
-    }
+    // Redirection WhatsApp ou intégration API
+    setTimeout(() => {
+      const msg = `Bonjour, je souhaite commander :\n- Pièce : ${currentPart.name} (${brandSelect.value} ${modelSelect.value})\n- Quantité : ${qty}\n- Total : ${total} FCFA\n- Client : ${nom}\n- Ville : ${ville}\n- Moyen de paiement : ${currentPaymentMethod.toUpperCase()}`;
+      window.open(`https://wa.me/221773832557?text=${encodeURIComponent(msg)}`, '_blank');
+    }, 1200);
   });
 
-  // Message de retour après paiement.
-  const params = new URLSearchParams(window.location.search);
-  if(params.get("payment") === "success"){
-    statusEl.className = "payment-status success";
-    statusEl.textContent = "Paiement terminé. Votre commande est en cours de confirmation.";
-  }else if(params.get("payment") === "error"){
-    statusEl.className = "payment-status error";
-    statusEl.textContent = "Le paiement n'a pas été finalisé. Vous pouvez réessayer.";
-  }
+  // LANCEMENT
+  initBrands();
 </script>
-
 </body>
 </html>
