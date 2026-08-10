@@ -239,6 +239,11 @@
   .pay-method.disabled{ opacity:0.55; }
 
 
+
+  .parts-grid .part-card{width:100%;font:inherit;color:var(--paper);appearance:none}
+  .parts-grid .part-card:focus{outline:2px solid var(--rust-bright);outline-offset:2px}
+  .field .catalog-select{margin-bottom:0}
+
   /* ---------- CATALOGUE DE PIÈCES ---------- */
   .catalog-box{border:1px solid var(--line);padding:20px;margin-bottom:18px;background:var(--ink)}
   .catalog-title{font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;margin-bottom:16px}
@@ -437,6 +442,7 @@
 
         <div class="catalog-box">
           <div class="catalog-title">2 — Choisir la pièce</div>
+          <p class="hint">Sélectionnez directement la pièce dans la liste. Aucune saisie n'est nécessaire.</p>
           <div id="parts-grid" class="parts-grid">
             <div class="part-empty">Sélectionnez une marque et un modèle pour afficher les pièces disponibles.</div>
           </div>
@@ -449,7 +455,7 @@
               </div>
               <div class="qty-control">
                 <button type="button" id="qty-minus">−</button>
-                <input id="part-qty" type="number" min="1" value="1">
+                <input id="part-qty" type="number" min="1" value="1" readonly>
                 <button type="button" id="qty-plus">+</button>
               </div>
             </div>
@@ -467,12 +473,50 @@
 
         <div class="field">
           <label for="o-ville">Ville / Pays</label>
-          <input id="o-ville" type="text" placeholder="Ex : Dakar, Sénégal">
+          <select id="o-ville" class="catalog-select">
+            <option value="">Sélectionner votre ville</option>
+            <optgroup label="🇸🇳 Sénégal">
+              <option>Dakar</option>
+              <option>Thiès</option>
+              <option>Saint-Louis</option>
+              <option>Kaolack</option>
+              <option>Ziguinchor</option>
+              <option>Diourbel</option>
+              <option>Louga</option>
+              <option>Tambacounda</option>
+              <option>Kolda</option>
+              <option>Matam</option>
+              <option>Fatick</option>
+              <option>Rufisque</option>
+              <option>Mbour</option>
+              <option>Diamniadio</option>
+              <option>Guédiawaye</option>
+              <option>Pikine</option>
+              <option>Sédhiou</option>
+              <option>Kédougou</option>
+            </optgroup>
+            <optgroup label="🇦🇪 Dubaï / Émirats arabes unis">
+              <option>Dubai</option>
+              <option>Abu Dhabi</option>
+              <option>Sharjah</option>
+              <option>Ajman</option>
+              <option>Umm Al Quwain</option>
+              <option>Ras Al Khaimah</option>
+              <option>Fujairah</option>
+              <option>Al Ain</option>
+            </optgroup>
+          </select>
         </div>
 
         <div class="field">
-          <label for="o-note">Précisions (optionnel)</label>
-          <textarea id="o-note" placeholder="Année du véhicule, référence, précision complémentaire..."></textarea>
+          <label for="o-note">Précision (optionnel)</label>
+          <select id="o-note" class="catalog-select">
+            <option value="">Aucune précision</option>
+            <option>Je veux vérifier la disponibilité</option>
+            <option>Je veux une pièce d'origine</option>
+            <option>Je veux une pièce compatible</option>
+            <option>Je souhaite être rappelé</option>
+          </select>
         </div>
       </div>
 
@@ -579,7 +623,7 @@
       "Ranger": [
         {id:"ranger-alternateur", name:"Alternateur", price:85000},
         {id:"ranger-plaquettes", name:"Plaquettes de frein", price:30000},
-        {id:"ranger-amortisseur", name:"Amortisseur", price70000},
+        {id:"ranger-amortisseur", name:"Amortisseur", price:70000},
         {id:"ranger-filtre", name:"Filtre à huile", price:12000}
       ],
       "Focus": [
@@ -625,7 +669,7 @@
       "Compass": [
         {id:"compass-alternateur", name:"Alternateur", price90000},
         {id:"compass-plaquettes", name:"Plaquettes de frein", price35000},
-        {id:"compass-amortisseur", name:"Amortisseur", price70000}
+        {id:"compass-amortisseur", name:"Amortisseur", price:70000}
       ]
     }
   };
