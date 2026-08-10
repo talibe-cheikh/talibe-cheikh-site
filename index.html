@@ -69,6 +69,7 @@
     background:var(--rust-bright); color:var(--ink); padding:9px 18px; font-size:12px;
     font-weight:600; letter-spacing:0.06em; text-transform:uppercase; border-radius:2px;
   }
+  .navlinks-mobile{display:none;}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -99,7 +100,7 @@
   .btn-outline{ border:1px solid rgba(238,241,236,0.35); color:var(--paper); }
   .btn-outline:hover{ border-color:var(--paper); }
 
-  /* ---------- MANIFEST / ROUTE ---------- */
+  /* ---------- MANIFEST / ROUTE (signature element) ---------- */
   .manifest{
     padding:80px 0; background:var(--ink); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
   }
@@ -163,66 +164,6 @@
   }
   .brand:hover{ background:var(--rust-bright); color:var(--ink); }
 
-  /* ---------- ORDER / COMMANDER ---------- */
-  .order{ padding:90px 0; background:var(--ink); border-top:1px solid var(--line); }
-  .order-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
-  .order-panel{ background:#141a21; padding:38px 34px; }
-  .order-panel h3{ font-size:20px; margin-bottom:6px; }
-  .order-panel .hint{ font-size:13px; color:var(--mute); margin-bottom:26px; }
-
-  .field{ margin-bottom:16px; }
-  .field label{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:7px; }
-  .field input, .field textarea, .field select{
-    width:100%; background:var(--ink); border:1px solid var(--line); color:var(--paper);
-    padding:11px 13px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; border-radius:2px;
-  }
-  .field input:focus, .field textarea:focus, .field select:focus{ outline:none; border-color:var(--rust-bright); }
-  .order-submit{
-    display:block; text-align:center; width:100%; margin-top:16px; padding:14px; background:var(--rust-bright); color:var(--ink);
-    border:none; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:13px;
-    letter-spacing:0.06em; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:transform .15s;
-  }
-  .order-submit:hover{ transform:translateY(-2px); }
-
-  /* CATALOGUE DE PIÈCES */
-  .catalog-box{border:1px solid var(--line);padding:20px;margin-bottom:18px;background:var(--ink)}
-  .catalog-title{font-family:'Oswald',sans-serif;font-size:17px;text-transform:uppercase;margin-bottom:16px}
-  .catalog-label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
-  .catalog-select{width:100%;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:12px 13px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;border-radius:2px;margin-bottom:14px}
-  .catalog-select:focus{outline:none;border-color:var(--rust-bright)}
-  .parts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
-  .part-card{background:#141a21;border:1px solid var(--line);padding:16px;cursor:pointer;text-align:left;transition:.2s;width:100%;font:inherit;color:var(--paper);appearance:none}
-  .part-card:hover,.part-card.selected{border-color:var(--rust-bright);transform:translateY(-1px)}
-  .part-card:focus{outline:2px solid var(--rust-bright);outline-offset:2px}
-  .part-name{font-family:'Oswald',sans-serif;font-size:15px;text-transform:uppercase}
-  .part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright);font-size:13px;margin-top:7px}
-  .part-empty{font-size:13px;color:var(--mute);padding:15px;border:1px dashed var(--line);line-height:1.5;grid-column:1 / -1;}
-  .selected-part{display:none;margin-top:14px;padding:14px;border:1px solid var(--rust-bright);background:#141a21}
-  .selected-part.show{display:block}
-  .selected-part-row{display:flex;justify-content:space-between;gap:15px;align-items:center}
-  .selected-part-name{font-family:'Oswald',sans-serif;text-transform:uppercase}
-  .selected-part-price{font-family:'IBM Plex Mono',monospace;color:var(--rust-bright)}
-  .qty-control{display:flex;align-items:center;gap:10px;margin-top:12px}
-  .qty-control button{width:34px;height:34px;background:transparent;border:1px solid var(--line);color:var(--paper);cursor:pointer;font-size:18px}
-  .qty-control input{width:65px;text-align:center;background:var(--ink);border:1px solid var(--line);color:var(--paper);padding:8px}
-
-  .pay-panel{ background:#141a21; padding:38px 34px; }
-  .pay-panel h3{ font-size:20px; margin-bottom:22px; }
-  .payment-summary{border:1px solid var(--line);padding:22px;margin-bottom:18px;background:var(--ink)}
-  .summary-label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mute);letter-spacing:.08em}
-  .summary-total{font-family:'Oswald',sans-serif;font-size:34px;color:var(--rust-bright);margin-top:5px}
-  .summary-note,.payment-security{font-size:12px;color:var(--mute);line-height:1.5;margin-top:7px}
-  .pay-method{ border:1px solid var(--line); border-radius:2px; padding:18px 18px; margin-bottom:14px; }
-  .pay-method .pm-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
-  .pay-method .pm-name{ font-family:'Oswald',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:0.03em; }
-  .pay-method .pm-badge{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust-bright); border:1px solid var(--rust-bright); padding:2px 8px; border-radius:20px; }
-  .pay-method .pm-note{ font-size:12.5px; color:var(--mute); line-height:1.5; }
-  .pay-method.selectable{cursor:pointer;transition:border-color .2s,transform .15s}
-  .pay-method.selectable:hover{border-color:var(--rust-bright);transform:translateY(-1px)}
-  .pay-method.selectable.active{border-color:var(--rust-bright);box-shadow:0 0 0 1px var(--rust-bright)}
-  .payment-status{min-height:22px;margin-top:14px;font-size:13px;line-height:1.5}
-  .wa-request{display:block;text-align:center;margin-top:10px;padding:12px;border:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-
   /* ---------- CONTACT ---------- */
   .contact{ padding:90px 0 100px; background:#141a21; }
   .cards{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px;}
@@ -236,10 +177,71 @@
     font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; border-radius:2px;
   }
 
+  /* ---------- ORDER / COMMANDER ---------- */
+  .order{ padding:90px 0; background:var(--ink); border-top:1px solid var(--line); }
+  .order-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:44px; }
+  .order-panel{ background:#141a21; padding:38px 34px; }
+  .order-panel h3{ font-size:20px; margin-bottom:6px; }
+  .order-panel .hint{ font-size:13px; color:var(--mute); margin-bottom:26px; }
+
+  .dest-toggle{ display:flex; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:22px; }
+  .dest-toggle button{
+    flex:1; padding:11px 10px; background:var(--ink); color:var(--mute); font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase; border:none; cursor:pointer; transition:.2s;
+  }
+  .dest-toggle button.active{ background:var(--rust-bright); color:var(--ink); font-weight:600; }
+
+  .field{ margin-bottom:16px; }
+  .field label{ display:block; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--mute); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:7px; }
+  .field input, .field textarea{
+    width:100%; background:var(--ink); border:1px solid var(--line); color:var(--paper);
+    padding:11px 13px; font-family:'IBM Plex Sans',sans-serif; font-size:14px; border-radius:2px;
+  }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--rust-bright); }
+  .field textarea{ resize:vertical; min-height:80px; }
+  .order-submit{
+    display:block; text-align:center; width:100%; margin-top:6px; padding:14px; background:var(--rust-bright); color:var(--ink);
+    border:none; font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:0.06em; text-transform:uppercase; border-radius:2px; cursor:pointer; transition:transform .15s;
+  }
+  .order-submit:hover{ transform:translateY(-2px); }
+
+  .piece-row{ display:grid; grid-template-columns:1fr 90px 34px; gap:10px; margin-bottom:12px; align-items:end; }
+  .piece-row .field{ margin-bottom:0; }
+  .piece-row .remove-piece{
+    height:42px; background:transparent; border:1px solid var(--line); color:var(--mute);
+    cursor:pointer; border-radius:2px; font-size:16px; transition:.2s;
+  }
+  .piece-row .remove-piece:hover{ border-color:var(--rust-bright); color:var(--rust-bright); }
+  .add-piece-btn{
+    background:transparent; border:1px dashed rgba(238,241,236,0.3); color:var(--paper);
+    padding:10px 16px; font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.05em; cursor:pointer; border-radius:2px; width:100%; margin-bottom:6px; transition:.2s;
+  }
+  .add-piece-btn:hover{ border-color:var(--rust-bright); color:var(--rust-bright); }
+
+  .pay-panel{ background:#141a21; padding:38px 34px; }
+  .pay-panel h3{ font-size:20px; margin-bottom:22px; }
+  .pay-method{ border:1px solid var(--line); border-radius:2px; padding:18px 18px; margin-bottom:14px; }
+  .pay-method .pm-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .pay-method .pm-name{ font-family:'Oswald',sans-serif; font-size:15px; text-transform:uppercase; letter-spacing:0.03em; }
+  .pay-method .pm-badge{ font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--rust-bright); border:1px solid var(--rust-bright); padding:2px 8px; border-radius:20px; }
+  .pay-method .pm-badge.soon{ color:var(--mute); border-color:var(--mute); }
+  .pay-method .pm-num{ font-family:'IBM Plex Mono',monospace; font-size:15px; color:var(--paper); margin:10px 0; }
+  .pay-method .pm-note{ font-size:12.5px; color:var(--mute); line-height:1.5; }
+  .copy-btn{
+    margin-top:10px; display:inline-block; padding:8px 14px; border:1px solid rgba(238,241,236,0.3);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
+    background:transparent; color:var(--paper); cursor:pointer; border-radius:2px; transition:.2s;
+  }
+  .copy-btn:hover{ border-color:var(--paper); }
+  .copy-btn.copied{ border-color:var(--rust-bright); color:var(--rust-bright); }
+  .pay-method.disabled{ opacity:0.55; }
+
   footer{ padding:34px 0; border-top:1px solid var(--line); }
   .foot-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--mute); }
 
-  @media(max-width:860px){
+  @media (max-width:860px){
     .navlinks{ display:none; }
     .steps{ grid-template-columns:1fr 1fr; }
     .step{ border-right:1px solid var(--line); }
@@ -250,10 +252,6 @@
     .route{ flex-direction:column; gap:40px; }
     .route-line, .route-marker{ display:none; }
     .hero{ padding-top:130px; }
-    .order-grid{ grid-template-columns:1fr; }
-  }
-  @media(max-width:600px){
-    .parts-grid{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -379,144 +377,76 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow mono">PASSER COMMANDE</div>
-      <h2>Choisir une pièce</h2>
+      <h2>Commander une pièce</h2>
     </div>
-
     <div class="order-grid">
-
       <div class="order-panel">
-        <h3>Catalogue</h3>
-        <p class="hint">Choisissez la marque, le modèle puis cliquez directement sur la pièce qui vous intéresse.</p>
+        <h3>Détails de la commande</h3>
+        <p class="hint">Ajoutez une ou plusieurs pièces — la commande part directement en message WhatsApp prêt à envoyer.</p>
 
-        <div class="catalog-box">
-          <div class="catalog-title">1 — Votre véhicule</div>
-
-          <label class="catalog-label" for="car-brand">Marque</label>
-          <select id="car-brand" class="catalog-select">
-            <option value="">Sélectionner une marque</option>
-          </select>
-
-          <label class="catalog-label" for="car-model">Modèle</label>
-          <select id="car-model" class="catalog-select" disabled>
-            <option value="">Sélectionner d'abord une marque</option>
-          </select>
+        <div class="dest-toggle">
+          <button type="button" class="active" data-dest="sn">Sénégal — +221 77 383 25 57</button>
+          <button type="button" data-dest="ae">Dubaï/Sharjah — +971 55 359 2405</button>
         </div>
 
-        <div class="catalog-box">
-          <div class="catalog-title">2 — Choisir la pièce</div>
-          <p class="hint">Sélectionnez directement la pièce dans la liste. Aucune saisie n'est nécessaire.</p>
-          <div id="parts-grid" class="parts-grid">
-            <div class="part-empty">Sélectionnez une marque et un modèle pour afficher les pièces disponibles.</div>
-          </div>
+        <div id="pieces-list"></div>
+        <button type="button" class="add-piece-btn" id="add-piece">+ Ajouter une autre pièce</button>
 
-          <div id="selected-part" class="selected-part">
-            <div class="selected-part-row">
-              <div>
-                <div class="selected-part-name" id="selected-part-name">—</div>
-                <div class="selected-part-price" id="selected-part-unit-price">—</div>
-              </div>
-              <div class="qty-control">
-                <button type="button" id="qty-minus">−</button>
-                <input id="part-qty" type="number" min="1" value="1" readonly>
-                <button type="button" id="qty-plus">+</button>
-              </div>
-            </div>
-          </div>
-
-          <a class="wa-request" href="https://wa.me/221773832557" target="_blank" rel="noopener">
-            Vous ne trouvez pas votre pièce ? Demander sur WhatsApp
-          </a>
-        </div>
-
-        <div class="field">
+        <div class="field" style="margin-top:20px;">
           <label for="o-nom">Nom</label>
           <input id="o-nom" type="text" placeholder="Votre nom">
         </div>
-
         <div class="field">
           <label for="o-ville">Ville / Pays</label>
-          <select id="o-ville" class="catalog-select">
-            <option value="">Sélectionner votre ville</option>
-            <optgroup label="🇸🇳 Sénégal">
-              <option>Dakar</option>
-              <option>Thiès</option>
-              <option>Saint-Louis</option>
-              <option>Kaolack</option>
-              <option>Ziguinchor</option>
-              <option>Diourbel</option>
-              <option>Louga</option>
-              <option>Tambacounda</option>
-              <option>Kolda</option>
-              <option>Matam</option>
-              <option>Fatick</option>
-              <option>Rufisque</option>
-              <option>Mbour</option>
-              <option>Diamniadio</option>
-              <option>Guédiawaye</option>
-              <option>Pikine</option>
-              <option>Sédhiou</option>
-              <option>Kédougou</option>
-            </optgroup>
-            <optgroup label="🇦🇪 Dubaï / Émirats arabes unis">
-              <option>Dubai</option>
-              <option>Abu Dhabi</option>
-              <option>Sharjah</option>
-              <option>Ajman</option>
-              <option>Umm Al Quwain</option>
-              <option>Ras Al Khaimah</option>
-              <option>Fujairah</option>
-              <option>Al Ain</option>
-            </optgroup>
-          </select>
+          <input id="o-ville" type="text" placeholder="Ex : Dakar, Sénégal">
         </div>
-
         <div class="field">
-          <label for="o-note">Précision (optionnel)</label>
-          <select id="o-note" class="catalog-select">
-            <option value="">Aucune précision</option>
-            <option>Je veux vérifier la disponibilité</option>
-            <option>Je veux une pièce d'origine</option>
-            <option>Je veux une pièce compatible</option>
-            <option>Je souhaite être rappelé</option>
-          </select>
+          <label for="o-note">Précisions (optionnel)</label>
+          <textarea id="o-note" placeholder="Modèle, année, référence, photo à suivre..."></textarea>
         </div>
+        <a class="order-submit" id="o-submit" href="https://wa.me/221773832557" target="_blank" rel="noopener">Envoyer la commande via WhatsApp</a>
       </div>
 
       <div class="pay-panel">
-        <h3>Paiement sécurisé</h3>
+        <h3>Moyens de paiement</h3>
 
-        <div class="payment-summary">
-          <div class="summary-label">MONTANT À PAYER</div>
-          <div class="summary-total" id="payment-total">0 FCFA</div>
-          <div class="summary-note">Le montant est mis à jour automatiquement lorsque vous choisissez une pièce et sa quantité.</div>
-        </div>
-
-        <div class="pay-method selectable active" data-method="wave">
+        <div class="pay-method">
           <div class="pm-top">
             <span class="pm-name">Wave</span>
             <span class="pm-badge">Disponible</span>
           </div>
-          <div class="pm-note">Paiement en ligne sécurisé. Après validation, vous serez redirigé vers Wave.</div>
+          <div class="pm-num" id="wave-num">+221 77 383 25 57</div>
+          <div class="pm-note">Ouvrez l'app Wave, puis recherchez ce numéro pour envoyer le paiement. Confirmez ensuite par WhatsApp.</div>
+          <button type="button" class="copy-btn open-app-btn" data-app="wave">Ouvrir Wave pour payer</button>
         </div>
 
-        <div class="pay-method selectable" data-method="orange">
+        <div class="pay-method">
           <div class="pm-top">
             <span class="pm-name">Orange Money</span>
             <span class="pm-badge">Disponible</span>
           </div>
-          <div class="pm-note">Paiement en ligne sécurisé via l'intégration Orange Money Web Payment.</div>
+          <div class="pm-num" id="om-num">+221 77 383 25 57</div>
+          <div class="pm-note">Ouvrez l'app Orange Money (ou faites #144#), puis envoyez le paiement à ce numéro. Confirmez ensuite par WhatsApp.</div>
+          <button type="button" class="copy-btn open-app-btn" data-app="om">Ouvrir Orange Money pour payer</button>
         </div>
 
-        <button type="button" class="order-submit" id="pay-submit">
-          Payer maintenant
-        </button>
+        <div class="pay-method">
+          <div class="pm-top">
+            <span class="pm-name">Virement bancaire / Carte</span>
+            <span class="pm-badge">Sur demande</span>
+          </div>
+          <div class="pm-note">Compte disponible au Sénégal et aux Émirats (Dubaï/Sharjah). Une fois la commande confirmée sur WhatsApp, nous vous communiquons le RIB pour un virement ou paiement par carte depuis votre banque.</div>
+          <a class="copy-btn" id="bank-wa-btn" href="https://wa.me/221773832557" target="_blank" rel="noopener">Demander les coordonnées bancaires</a>
+        </div>
 
-        <div class="payment-status" id="payment-status" role="status"></div>
-        <div class="payment-security">
-          Le paiement est traité par le prestataire choisi.
+        <div class="pay-method disabled">
+          <div class="pm-top">
+            <span class="pm-name">PayPal</span>
+            <span class="pm-badge soon">Bientôt</span>
+          </div>
+          <div class="pm-note">Le paiement PayPal arrive prochainement.</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -554,244 +484,131 @@
 </footer>
 
 <script>
-  // =========================================================
-  // CATALOGUE DE PIÈCES
-  // =========================================================
-  const CATALOG = {
-    "Hyundai": {
-      "Tucson": [
-        {id:"tucson-alternateur", name:"Alternateur", price:75000},
-        {id:"tucson-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"tucson-amortisseur", name:"Amortisseur", price:60000},
-        {id:"tucson-filtre", name:"Filtre à huile", price:10000},
-        {id:"tucson-pompe", name:"Pompe à eau", price:55000}
-      ],
-      "Elantra": [
-        {id:"elantra-alternateur", name:"Alternateur", price:70000},
-        {id:"elantra-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"elantra-amortisseur", name:"Amortisseur", price:58000},
-        {id:"elantra-filtre", name:"Filtre à huile", price:10000}
-      ],
-      "Santa Fe": [
-        {id:"santafe-alternateur", name:"Alternateur", price:85000},
-        {id:"santafe-plaquettes", name:"Plaquettes de frein", price:30000},
-        {id:"santafe-amortisseur", name:"Amortisseur", price:70000}
-      ]
-    },
-
-    "Ford": {
-      "Ranger": [
-        {id:"ranger-alternateur", name:"Alternateur", price:85000},
-        {id:"ranger-plaquettes", name:"Plaquettes de frein", price:30000},
-        {id:"ranger-amortisseur", name:"Amortisseur", price:70000},
-        {id:"ranger-filtre", name:"Filtre à huile", price:12000}
-      ],
-      "Focus": [
-        {id:"focus-alternateur", name:"Alternateur", price:75000},
-        {id:"focus-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"focus-amortisseur", name:"Amortisseur", price:60000}
-      ]
-    },
-
-    "Peugeot": {
-      "208": [
-        {id:"208-alternateur", name:"Alternateur", price:70000},
-        {id:"208-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"208-amortisseur", name:"Amortisseur", price:55000},
-        {id:"208-filtre", name:"Filtre à huile", price:10000}
-      ],
-      "3008": [
-        {id:"3008-alternateur", name:"Alternateur", price:80000},
-        {id:"3008-plaquettes", name:"Plaquettes de frein", price:30000},
-        {id:"3008-amortisseur", name:"Amortisseur", price:65000}
-      ]
-    },
-
-    "Mazda": {
-      "CX-5": [
-        {id:"cx5-alternateur", name:"Alternateur", price:85000},
-        {id:"cx5-plaquettes", name:"Plaquettes de frein", price:30000},
-        {id:"cx5-amortisseur", name:"Amortisseur", price:65000}
-      ],
-      "Mazda 3": [
-        {id:"mazda3-alternateur", name:"Alternateur", price:75000},
-        {id:"mazda3-plaquettes", name:"Plaquettes de frein", price:25000},
-        {id:"mazda3-amortisseur", name:"Amortisseur", price:60000}
-      ]
-    },
-
-    "Jeep": {
-      "Grand Cherokee": [
-        {id:"gc-alternateur", name:"Alternateur", price:95000},
-        {id:"gc-plaquettes", name:"Plaquettes de frein", price:35000},
-        {id:"gc-amortisseur", name:"Amortisseur", price:75000}
-      ],
-      "Compass": [
-        {id:"compass-alternateur", name:"Alternateur", price:90000},
-        {id:"compass-plaquettes", name:"Plaquettes de frein", price:35000},
-        {id:"compass-amortisseur", name:"Amortisseur", price:70000}
-      ]
-    }
-  };
-
-  // ÉLÉMENTS DOM
-  const brandSelect = document.getElementById("car-brand");
-  const modelSelect = document.getElementById("car-model");
-  const partsGrid = document.getElementById("parts-grid");
-  const selectedPartBox = document.getElementById("selected-part");
-  const selectedPartName = document.getElementById("selected-part-name");
-  const selectedPartUnitPrice = document.getElementById("selected-part-unit-price");
-  const partQtyInput = document.getElementById("part-qty");
-  const qtyMinusBtn = document.getElementById("qty-minus");
-  const qtyPlusBtn = document.getElementById("qty-plus");
-  const paymentTotal = document.getElementById("payment-total");
-  const paySubmitBtn = document.getElementById("pay-submit");
-  const paymentStatus = document.getElementById("payment-status");
-
-  let currentPart = null;
-  let currentPaymentMethod = "wave";
-
-  // INITIALISATION MARQUES
-  function initBrands() {
-    for (let brand in CATALOG) {
-      const opt = document.createElement("option");
-      opt.value = brand;
-      opt.textContent = brand;
-      brandSelect.appendChild(opt);
-    }
-  }
-
-  // GESTION CHANGEMENT MARQUE
-  brandSelect.addEventListener("change", function() {
-    const selectedBrand = this.value;
-    modelSelect.innerHTML = '<option value="">Sélectionner un modèle</option>';
-    partsGrid.innerHTML = '<div class="part-empty">Sélectionnez un modèle pour voir les pièces disponibles.</div>';
-    resetSelection();
-
-    if (selectedBrand && CATALOG[selectedBrand]) {
-      modelSelect.disabled = false;
-      for (let model in CATALOG[selectedBrand]) {
-        const opt = document.createElement("option");
-        opt.value = model;
-        opt.textContent = model;
-        modelSelect.appendChild(opt);
-      }
-    } else {
-      modelSelect.disabled = true;
-      modelSelect.innerHTML = '<option value="">Sélectionner d\'abord une marque</option>';
-    }
-  });
-
-  // GESTION CHANGEMENT MODÈLE
-  modelSelect.addEventListener("change", function() {
-    const selectedBrand = brandSelect.value;
-    const selectedModel = this.value;
-    partsGrid.innerHTML = '';
-    resetSelection();
-
-    if (selectedBrand && selectedModel && CATALOG[selectedBrand][selectedModel]) {
-      const parts = CATALOG[selectedBrand][selectedModel];
-      parts.forEach(part => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "part-card";
-        btn.innerHTML = `<div class="part-name">${part.name}</div><div class="part-price">${part.price.toLocaleString('fr-FR')} FCFA</div>`;
-        btn.addEventListener("click", () => selectPart(part, btn));
-        partsGrid.appendChild(btn);
-      });
-    } else {
-      partsGrid.innerHTML = '<div class="part-empty">Sélectionnez une marque et un modèle pour afficher les pièces disponibles.</div>';
-    }
-  });
-
-  // SÉLECTION D'UNE PIÈCE
-  function selectPart(part, cardElem) {
-    document.querySelectorAll(".part-card").forEach(c => c.classList.remove("selected"));
-    cardElem.classList.add("selected");
-    currentPart = part;
-
-    selectedPartName.textContent = part.name;
-    selectedPartUnitPrice.textContent = `${part.price.toLocaleString('fr-FR')} FCFA / unité`;
-    selectedPartBox.classList.add("show");
-    
-    updateTotal();
-  }
-
-  // REINITIALISER SÉLECTION
-  function resetSelection() {
-    currentPart = null;
-    selectedPartBox.classList.remove("show");
-    partQtyInput.value = 1;
-    updateTotal();
-  }
-
-  // RECALCUL TOTAL
-  function updateTotal() {
-    if (currentPart) {
-      const qty = parseInt(partQtyInput.value, 10) || 1;
-      const total = currentPart.price * qty;
-      paymentTotal.textContent = `${total.toLocaleString('fr-FR')} FCFA`;
-    } else {
-      paymentTotal.textContent = "0 FCFA";
-    }
-  }
-
-  // BOUTONS QUANTITÉ
-  qtyMinusBtn.addEventListener("click", () => {
-    let val = parseInt(partQtyInput.value, 10) || 1;
-    if (val > 1) {
-      partQtyInput.value = val - 1;
-      updateTotal();
-    }
-  });
-
-  qtyPlusBtn.addEventListener("click", () => {
-    let val = parseInt(partQtyInput.value, 10) || 1;
-    partQtyInput.value = val + 1;
-    updateTotal();
-  });
-
-  // MODE DE PAIEMENT
-  document.querySelectorAll(".pay-method.selectable").forEach(method => {
-    method.addEventListener("click", function() {
-      document.querySelectorAll(".pay-method.selectable").forEach(m => m.classList.remove("active"));
-      this.classList.add("active");
-      currentPaymentMethod = this.getAttribute("data-method");
+  // Destination toggle for order form
+  let destPhone = "221773832557";
+  const destButtons = document.querySelectorAll('.dest-toggle button');
+  destButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      destButtons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      destPhone = btn.dataset.dest === 'sn' ? "221773832557" : "971553592405";
     });
   });
 
-  // SOUMISSION PAIEMENT
-  paySubmitBtn.addEventListener("click", () => {
-    const nom = document.getElementById("o-nom").value.trim();
-    const ville = document.getElementById("o-ville").value;
+  // ---- Repeatable "pièces" rows ----
+  const piecesList = document.getElementById('pieces-list');
+  let pieceCount = 0;
 
-    if (!currentPart) {
-      paymentStatus.className = "payment-status error";
-      paymentStatus.textContent = "Veuillez sélectionner une pièce avant de payer.";
+  function addPieceRow(){
+    pieceCount++;
+    const row = document.createElement('div');
+    row.className = 'piece-row';
+    row.innerHTML =
+      '<div class="field">' +
+        '<label>Pièce recherchée</label>' +
+        '<input type="text" class="piece-name" placeholder="Ex : Alternateur Hyundai Tucson 2019">' +
+      '</div>' +
+      '<div class="field">' +
+        '<label>Qté</label>' +
+        '<input type="text" class="piece-qty" placeholder="1">' +
+      '</div>' +
+      '<button type="button" class="remove-piece" title="Retirer cette pièce">×</button>';
+    piecesList.appendChild(row);
+    row.querySelector('.remove-piece').addEventListener('click', ()=>{
+      if(piecesList.children.length > 1){ row.remove(); }
+    });
+  }
+  addPieceRow(); // start with one row
+
+  document.getElementById('add-piece').addEventListener('click', addPieceRow);
+
+  // ---- Build WhatsApp order link (updates the <a> href just before navigation) ----
+  const orderLink = document.getElementById('o-submit');
+  orderLink.addEventListener('click', (e)=>{
+    const nom = document.getElementById('o-nom').value.trim();
+    const ville = document.getElementById('o-ville').value.trim();
+    const note = document.getElementById('o-note').value.trim();
+
+    const rows = piecesList.querySelectorAll('.piece-row');
+    const pieces = [];
+    rows.forEach(row=>{
+      const name = row.querySelector('.piece-name').value.trim();
+      const qty = row.querySelector('.piece-qty').value.trim();
+      if(name) pieces.push({name, qty});
+    });
+
+    if(pieces.length === 0 || !nom){
+      e.preventDefault();
+      alert("Merci de renseigner au moins une pièce et votre nom.");
       return;
     }
 
-    if (!nom || !ville) {
-      paymentStatus.className = "payment-status error";
-      paymentStatus.textContent = "Veuillez indiquer votre nom et votre ville.";
-      return;
-    }
+    let msg = "Bonjour, je souhaite passer une commande :\n";
+    pieces.forEach((p, i)=>{
+      msg += "— Pièce " + (i+1) + " : " + p.name + (p.qty ? " (qté : " + p.qty + ")" : "") + "\n";
+    });
+    msg += "— Nom : " + nom + "\n";
+    if(ville) msg += "— Ville/Pays : " + ville + "\n";
+    if(note) msg += "— Précisions : " + note + "\n";
 
-    const qty = parseInt(partQtyInput.value, 10) || 1;
-    const total = currentPart.price * qty;
-
-    paymentStatus.className = "payment-status loading";
-    paymentStatus.textContent = `Redirection vers ${currentPaymentMethod.toUpperCase()} pour le règlement de ${total.toLocaleString('fr-FR')} FCFA...`;
-
-    // Redirection WhatsApp ou intégration API
-    setTimeout(() => {
-      const msg = `Bonjour, je souhaite commander :\n- Pièce : ${currentPart.name} (${brandSelect.value} ${modelSelect.value})\n- Quantité : ${qty}\n- Total : ${total} FCFA\n- Client : ${nom}\n- Ville : ${ville}\n- Moyen de paiement : ${currentPaymentMethod.toUpperCase()}`;
-      window.open(`https://wa.me/221773832557?text=${encodeURIComponent(msg)}`, '_blank');
-    }, 1200);
+    orderLink.href = "https://wa.me/" + destPhone + "?text=" + encodeURIComponent(msg);
+    // let the click continue naturally to this updated href
   });
 
-  // LANCEMENT
-  initBrands();
+  // ---- Copy-to-clipboard for payment numbers (kept for any future data-copy buttons) ----
+  document.querySelectorAll('.copy-btn[data-copy]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const val = btn.dataset.copy;
+      const done = ()=>{
+        const original = btn.textContent;
+        btn.textContent = "Copié !";
+        btn.classList.add('copied');
+        setTimeout(()=>{
+          btn.textContent = original;
+          btn.classList.remove('copied');
+        }, 1800);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(val).then(done).catch(()=>{
+          window.prompt("Copiez le numéro :", val);
+        });
+      } else {
+        window.prompt("Copiez le numéro :", val);
+      }
+    });
+  });
+
+  // ---- Open Wave / Orange Money app directly ----
+  const appLinks = {
+    wave: {
+      android: "https://play.google.com/store/apps/details?id=com.wave.personal",
+      ios: "https://apps.apple.com/sn/app/wave-mobile-money/id1523884528"
+    },
+    om: {
+      android: "https://play.google.com/store/apps/details?id=com.orange.mobile.orangemoney",
+      ios: "https://apps.apple.com/sn/app/orange-money-senegal/id1447224280"
+    }
+  };
+  function isIOS(){ return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
+
+  document.querySelectorAll('.open-app-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const app = appLinks[btn.dataset.app];
+      const url = isIOS() ? app.ios : app.android;
+      window.open(url, '_blank');
+      const original = btn.textContent;
+      btn.textContent = "App ouverte — cherchez le numéro ↑";
+      setTimeout(()=>{ btn.textContent = original; }, 3000);
+    });
+  });
+
+  // ---- Ask for bank details via WhatsApp ----
+  const bankLink = document.getElementById('bank-wa-btn');
+  bankLink.addEventListener('click', ()=>{
+    const msg = "Bonjour, je viens de discuter d'une commande et je souhaite payer par virement bancaire / carte. Pouvez-vous m'envoyer vos coordonnées bancaires (Sénégal ou Émirats) ?";
+    bankLink.href = "https://wa.me/" + destPhone + "?text=" + encodeURIComponent(msg);
+  });
 </script>
+
 </body>
 </html>
