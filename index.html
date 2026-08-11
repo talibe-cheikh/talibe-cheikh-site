@@ -8,10 +8,10 @@
 
 <!-- Aperçu WhatsApp / Facebook / réseaux sociaux -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://talibe-cheikh.github.io/talibe-cheikh-site/">
+<meta property="og:url" content="https://talibe-cheikh.github.io/tchb-business/">
 <meta property="og:title" content="Talibé Cheikh Holding Business — Import Export Pièces Détachées">
 <meta property="og:description" content="Import-export de pièces détachées auto entre Dubaï/Sharjah et le Sénégal. Ford, Mazda, Hyundai, Jeep, Peugeot. Atelier de réparation auto.">
-<meta property="og:image" content="https://talibe-cheikh.github.io/talibe-cheikh-site/affiche.jpg">
+<meta property="og:image" content="https://talibe-cheikh.github.io/tchb-business/affiche.jpg">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="1138">
 
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Talibé Cheikh Holding Business — Import Export Pièces Détachées">
 <meta name="twitter:description" content="Import-export de pièces détachées auto entre Dubaï/Sharjah et le Sénégal.">
-<meta name="twitter:image" content="https://talibe-cheikh.github.io/talibe-cheikh-site/affiche.jpg">
+<meta name="twitter:image" content="https://talibe-cheikh.github.io/tchb-business/affiche.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -476,8 +476,8 @@
             <span class="pm-badge">Disponible</span>
           </div>
           <div class="pm-num" id="wave-num">+221 77 383 25 57</div>
-          <div class="pm-note">Ouvrez l'app Wave, puis recherchez ce numéro pour envoyer le paiement. Confirmez ensuite par WhatsApp.</div>
-          <button type="button" class="copy-btn open-app-btn" data-app="wave">Ouvrir Wave pour payer</button>
+          <div class="pm-note">Ouvrez votre app Wave, puis envoyez le montant convenu à ce numéro. Confirmez ensuite par WhatsApp.</div>
+          <button type="button" class="copy-btn" data-copy="+221 77 383 25 57">Copier le numéro</button>
         </div>
 
         <div class="pay-method">
@@ -486,8 +486,8 @@
             <span class="pm-badge">Disponible</span>
           </div>
           <div class="pm-num" id="om-num">+221 77 383 25 57</div>
-          <div class="pm-note">Ouvrez l'app Orange Money (ou faites #144#), puis envoyez le paiement à ce numéro. Confirmez ensuite par WhatsApp.</div>
-          <button type="button" class="copy-btn open-app-btn" data-app="om">Ouvrir Orange Money pour payer</button>
+          <div class="pm-note">Ouvrez votre app Orange Money (ou faites #144#), puis envoyez le montant convenu à ce numéro. Confirmez ensuite par WhatsApp.</div>
+          <button type="button" class="copy-btn" data-copy="+221 77 383 25 57">Copier le numéro</button>
         </div>
 
         <div class="pay-method">
@@ -735,30 +735,6 @@
       } else {
         window.prompt("Copiez le numéro :", val);
       }
-    });
-  });
-
-  // ---- Open Wave / Orange Money app directly ----
-  const appLinks = {
-    wave: {
-      android: "https://play.google.com/store/apps/details?id=com.wave.personal",
-      ios: "https://apps.apple.com/sn/app/wave-mobile-money/id1523884528"
-    },
-    om: {
-      android: "https://play.google.com/store/apps/details?id=com.orange.mobile.orangemoney",
-      ios: "https://apps.apple.com/sn/app/orange-money-senegal/id1447224280"
-    }
-  };
-  function isIOS(){ return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
-
-  document.querySelectorAll('.open-app-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const app = appLinks[btn.dataset.app];
-      const url = isIOS() ? app.ios : app.android;
-      window.open(url, '_blank');
-      const original = btn.textContent;
-      btn.textContent = "App ouverte — cherchez le numéro ↑";
-      setTimeout(()=>{ btn.textContent = original; }, 3000);
     });
   });
 
